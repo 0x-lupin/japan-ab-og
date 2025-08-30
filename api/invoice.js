@@ -20,7 +20,7 @@ module.exports = (req, res) => {
         <meta property="og:description" content="View your invoice." />-->
 
         <!-- Optional: Redirect to the actual image after a delay -->
-        <meta http-equiv="refresh" content="0; url=${imageUrl}" />
+        <!--<meta http-equiv="refresh" content="0; url=${imageUrl}" />-->
       </head>
       <body>
         <h1>Loading your invoice image...</h1>
