@@ -16,10 +16,12 @@ module.exports = (req, res) => {
         
         <!-- Open Graph Tags -->
         <meta property="og:image" content="${imageUrl}" />
-        <meta property="og:image:width" content="707" />
+        <meta property="og:image:width" content="1000" />
         <meta property="og:image:height" content="1000" />
         <meta property="og:type" content="website" />
         <meta name="robots" content="noindex" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta property="og:image:alt" content="Invoice Preview" />
         
         <script>
           // Only redirect if it's a real browser (not a bot)
