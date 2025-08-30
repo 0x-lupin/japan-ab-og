@@ -16,11 +16,11 @@ module.exports = (req, res) => {
         
         <!-- THIS IS YOUR OPEN GRAPH TAG -->
         <meta property="og:image" content="${imageUrl}" />
-        <meta property="og:title" content="Invoice #${invoiceId}" />
-        <meta property="og:description" content="View your invoice." />
+        <!--<meta property="og:title" content="Invoice #${invoiceId}" />
+        <meta property="og:description" content="View your invoice." />-->
 
         <!-- Optional: Redirect to the actual image after a delay -->
-        <!-- <meta http-equiv="refresh" content="0; url=${imageUrl}" /> -->
+        <meta http-equiv="refresh" content="0; url=${imageUrl}" />
       </head>
       <body>
         <h1>Loading your invoice image...</h1>
