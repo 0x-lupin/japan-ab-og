@@ -16,9 +16,9 @@ module.exports = (req, res) => {
         <meta property="og:image:width" content="1000" />
         <meta property="og:image:height" content="1000" />
         <meta property="og:type" content="website" />
-        <meta name="robots" content="noindex" />
+        <!--<meta name="robots" content="noindex" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta property="og:image:alt" content="Invoice Preview" />
+        <meta property="og:image:alt" content="Invoice Preview" />-->
         
         <script>
           if (!/bot|facebook|telegram|twitter|linkedin|whatsapp/i.test(navigator.userAgent)) {
