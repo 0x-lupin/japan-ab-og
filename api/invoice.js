@@ -22,7 +22,7 @@ module.exports = (req, res) => {
         
       </head>
       <body>
-        <p>Redirecting to invoice...</p>
+        <h1>Redirecting to invoice...</h1>
 
         <script>
           if (!/bot|facebook|telegram|twitter|linkedin|whatsapp/i.test(navigator.userAgent)) {
