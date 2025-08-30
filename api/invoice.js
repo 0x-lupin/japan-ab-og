@@ -14,16 +14,25 @@ module.exports = (req, res) => {
         <meta charset="utf-8">
         <title>Invoice</title>
         
-        <!-- THIS IS YOUR OPEN GRAPH TAG -->
+        <!-- Open Graph Tags -->
         <meta property="og:image" content="${imageUrl}" />
-        <!--<meta property="og:title" content="Invoice #${invoiceId}" />
-        <meta property="og:description" content="View your invoice." />-->
-
-        <!-- Optional: Redirect to the actual image after a delay -->
-        <!--<meta http-equiv="refresh" content="0; url=${imageUrl}" />-->
+        <meta property="og:image:width" content="707" />
+        <meta property="og:image:height" content="1000" />
+        <meta property="og:type" content="website" />
+        <meta name="robots" content="noindex" />
+        
+        <script>
+          // Only redirect if it's a real browser (not a bot)
+          if (!/bot|facebook|telegram|twitter|linkedin|whatsapp/i.test(navigator.userAgent)) {
+            window.location.href = 'https://japan-ab.ct.ws/generate_invoice.html?id='+'${invoiceId}';
+          }
+        </script>
       </head>
       <body>
-        <h1>Loading your invoice image...</h1>
+        <noscript>
+          <meta http-equiv="refresh" content="0;url=https://japan-ab.ct.ws/generate_invoice.html?id=${invoiceId}">
+        </noscript>
+        <p>Redirecting to invoice...</p>
       </body>
     </html>
   `;
