@@ -1,18 +1,18 @@
 const React = require('react');
-const { ImageResponse } = require('@vercel/og');
 
 module.exports.config = {
   runtime: 'edge',
 };
 
 module.exports = async function handler(req) {
+  // The fix is here: We must dynamically import the library inside the async function.
+  const { ImageResponse } = await import('@vercel/og');
+
   const { searchParams } = new URL(req.url, 'http://localhost');
   const invoiceId = searchParams.get('id');
   const dynamicImageUrl = `https://japan-ab.ct.ws/uploads/${invoiceId}.jpg`;
   const title = searchParams.get('title') || `Invoice #${invoiceId}`;
 
-  // This is the pure JavaScript way to create the elements.
-  // It avoids the '<' syntax error completely.
   const element = React.createElement(
     'div',
     {
