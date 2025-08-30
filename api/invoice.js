@@ -12,7 +12,7 @@ module.exports = (req, res) => {
     <html>
       <head>
         <meta charset="utf-8">
-        <!--<title>Invoice #${invoiceId}</title>-->
+        <title>Invoice</title>
         
         <!-- THIS IS YOUR OPEN GRAPH TAG -->
         <meta property="og:image" content="${imageUrl}" />
