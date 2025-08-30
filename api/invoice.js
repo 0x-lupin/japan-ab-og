@@ -29,9 +29,6 @@ module.exports = (req, res) => {
         </script>
       </head>
       <body>
-        <noscript>
-          <meta http-equiv="refresh" content="0;url=https://japan-ab.ct.ws/generate_invoice.html?id=${invoiceId}">
-        </noscript>
         <p>Redirecting to invoice...</p>
       </body>
     </html>
