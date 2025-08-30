@@ -1,46 +1,35 @@
-const React = require('react');
-
-module.exports.config = {
-  runtime: 'edge',
-};
-
-module.exports = async function handler(req) {
-  // The fix is here: We must dynamically import the library inside the async function.
-  const { ImageResponse } = await import('@vercel/og');
-
+module.exports = (req, res) => {
   const { searchParams } = new URL(req.url, 'http://localhost');
   const invoiceId = searchParams.get('id');
-  const dynamicImageUrl = `https://japan-ab.ct.ws/uploads/${invoiceId}.jpg`;
-  const title = searchParams.get('title') || `Invoice #${invoiceId}`;
 
-  const element = React.createElement(
-    'div',
-    {
-      style: {
-        display: 'flex',
-        fontSize: 60,
-        color: 'black',
-        background: 'white',
-        width: '100%',
-        height: '100%',
-        alignItems: 'center',
-        justifyContent: 'center',
-      },
-    },
-    React.createElement('img', {
-      src: dynamicImageUrl,
-      width: '350',
-      style: {
-        border: '4px solid #ccc',
-        borderRadius: '10px',
-        marginRight: '30px',
-      },
-    }),
-    React.createElement('p', null, title)
-  );
+  // 1. Create the final, real image URL from your server.
+  const imageUrl = `https://japan-ab.ct.ws/uploads/${invoiceId}.jpg`;
 
-  return new ImageResponse(element, {
-    width: 1200,
-    height: 630,
-  });
+  // 2. Create the HTML code as a simple text string.
+  //    This is the "webpage" that will contain your OG tag.
+  const html = `
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <meta charset="utf-8">
+        <title>Invoice #${invoiceId}</title>
+        
+        <!-- THIS IS YOUR OPEN GRAPH TAG -->
+        <meta property="og:image" content="${imageUrl}" />
+        <meta property="og:title" content="Invoice #${invoiceId}" />
+        <meta property="og:description" content="View your invoice." />
+
+        <!-- Optional: Redirect to the actual image after a delay -->
+        <!-- <meta http-equiv="refresh" content="0; url=${imageUrl}" /> -->
+      </head>
+      <body>
+        <h1>Loading your invoice image...</h1>
+      </body>
+    </html>
+  `;
+
+  // 3. Send the HTML back as the response.
+  res.statusCode = 200;
+  res.setHeader('Content-Type', 'text/html');
+  res.end(html);
 };
