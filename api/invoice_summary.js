@@ -2,7 +2,7 @@ module.exports = (req, res) => {
   const { searchParams } = new URL(req.url, 'http://localhost');
   const invoiceId = searchParams.get('id');
 
-  const imageUrl = `https://japan-ab.ct.ws/uploads/${invoiceId}_edited.jpg`;
+  const imageUrl = `https://japan-ab.ct.ws/uploads/${invoiceId}_summary.jpg`;
 
   const html = `
     <!DOCTYPE html>
